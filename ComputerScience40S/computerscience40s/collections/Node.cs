@@ -12,6 +12,7 @@ namespace ComputerScience40S.computerscience40s.collections
     /// Node - a representation of a generic node for use with 
     /// a LinkedList object
     /// </summary>
+    /// <typeparam name="T">The generic data type used in the class</typeparam>
     class Node <T>
     {
 

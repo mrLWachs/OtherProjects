@@ -27,7 +27,7 @@ namespace ComputerScience40S
 
         private void cs30SButton_Click(object sender, EventArgs e)
         {
-            new ComputerScience30S().Show();
+            new computerscience30s.ComputerScience30S().Show();
         }
 
         private void cs40SButton_Click(object sender, EventArgs e)

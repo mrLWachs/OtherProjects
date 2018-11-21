@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComputerScience40S.computerscience40s.testing;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,11 +23,13 @@ namespace ComputerScience40S.computerscience30s
 
         private void ComputerScience30S_Load(object sender, EventArgs e)
         {
-            outputList.Items.Add("Computer Science 30S Example started...");
-            unit1();
-            unit2();
-            unit3();
-            outputList.Items.Add("Computer Science 30S Example completed!");
+            Tester.outputList = outputList;
+            Tester.print("Computer Science 30S Example started...");
+            //unit1();    // introduction to C# programming
+            //unit2();    // methods in C#
+            //unit3();    // arrays in C#
+            unit4();    // classes in C#
+            Tester.print("Computer Science 30S Example completed!");
             outputList.SelectedIndex = outputList.Items.Count - 1;
         }
 
@@ -35,7 +38,7 @@ namespace ComputerScience40S.computerscience30s
         /// </summary>
         private void unit1()
         {
-            outputList.Items.Add("Java basics started...");
+            Tester.print("Java basics started...");
 
             //////////////////////////////////////////////////////////////////////
             // C# BASICS:
@@ -48,8 +51,8 @@ namespace ComputerScience40S.computerscience30s
                 comment that continues until a star and a slash is reached
             */
 
-            outputList.Items.Add("Hello World...");
-            outputList.Items.Add("Goodbye world");
+            Tester.print("Hello World...");
+            Tester.print("Goodbye world");
 
             // examples of "special" output characters:        
             Console.WriteLine("Make a quote, \" is a quote");
@@ -109,38 +112,38 @@ namespace ComputerScience40S.computerscience30s
             string e1 = "words";
 
             // output the variables:
-            outputList.Items.Add("a = " + a);
-            outputList.Items.Add("b = " + b);
-            outputList.Items.Add("c = " + c);
-            outputList.Items.Add("d = " + d);
-            outputList.Items.Add("e = " + e1);
+            Tester.print("a = " + a);
+            Tester.print("b = " + b);
+            Tester.print("c = " + c);
+            Tester.print("d = " + d);
+            Tester.print("e = " + e1);
 
             // manipluate (change) variabes
             int x = 10;
-            outputList.Items.Add("x = " + x);
+            Tester.print("x = " + x);
             x = 20;
-            outputList.Items.Add("x = " + x);
+            Tester.print("x = " + x);
             int y = x + 10;
-            outputList.Items.Add("y = " + y);
+            Tester.print("y = " + y);
             // shorthand (not needed)
             y++;                                // same as y = y + 1
-            outputList.Items.Add("y = " + y);
+            Tester.print("y = " + y);
             y--;                                // same as y = y - 1
-            outputList.Items.Add("y = " + y);
+            Tester.print("y = " + y);
             y = y + 10;
-            outputList.Items.Add("y = " + y);
+            Tester.print("y = " + y);
 
             // more shorthand, really not needed
             y += 10;                            // same as y = y + 10
             y -= 10;                            // same as y = y - 10
             y *= 2;                             // same as y = y * 2
             y /= 10;                            // same as y = y / 10;        
-            outputList.Items.Add("y = " + y);
+            Tester.print("y = " + y);
 
             // modulus division, gives the remainder
             x = 28;
             y = x % 5;
-            outputList.Items.Add("y = " + y);
+            Tester.print("y = " + y);
 
             // constants, variables that never change typed in ALL CAPITAL LETTERS
             const double PI = 3.14;
@@ -149,7 +152,7 @@ namespace ComputerScience40S.computerscience30s
             const bool FOUND = true;
             const String TEACHER_NAME = "Wachs";
             // underscore seperates words in constants        
-            outputList.Items.Add(PI + " and " +
+            Tester.print(PI + " and " +
                     PROBLEMS + " and " +
                     YES + " and " +
                     FOUND + " and " +
@@ -165,20 +168,20 @@ namespace ComputerScience40S.computerscience30s
             double k = 2.99999999999;
             int l = (int)k;
             double m = (double)l;
-            outputList.Items.Add("f = " + f);
-            outputList.Items.Add("g = " + g);
-            outputList.Items.Add("h = " + h);
-            outputList.Items.Add("k = " + k);
-            outputList.Items.Add("l = " + l);
-            outputList.Items.Add("m = " + m);
+            Tester.print("f = " + f);
+            Tester.print("g = " + g);
+            Tester.print("h = " + h);
+            Tester.print("k = " + k);
+            Tester.print("l = " + l);
+            Tester.print("m = " + m);
 
             // cast characters into numbers:
             char n = 'a';
             int o = (int)n;
-            outputList.Items.Add("o = " + o);
+            Tester.print("o = " + o);
             o++;
             char p = (char)o;
-            outputList.Items.Add("p = " + p);
+            Tester.print("p = " + p);
             // stores the values in the ASCII table
 
             // use input dialog with a string   
@@ -203,7 +206,7 @@ namespace ComputerScience40S.computerscience30s
             int count = word.Length;
             // the length of the characters in the string
             char letter = word[3];
-            outputList.Items.Add("Letter at 3 is " + letter);
+            Tester.print("Letter at 3 is " + letter);
             // gets 1 character from the string at the specified index number, 
             // which starts at zero
 
@@ -218,12 +221,12 @@ namespace ComputerScience40S.computerscience30s
             double answer4 = Math.Log(0.5);     // logarithms
             double answer5 = Math.Pow(5, 3);    // 5 to the power of 3
             double answer6 = Math.Sqrt(9);      // square root
-            outputList.Items.Add("answer 1 = " + answer1);
-            outputList.Items.Add("answer 2 = " + answer2);
-            outputList.Items.Add("answer 3 = " + answer3);
-            outputList.Items.Add("answer 4 = " + answer4);
-            outputList.Items.Add("answer 5 = " + answer5);
-            outputList.Items.Add("answer 6 = " + answer6);
+            Tester.print("answer 1 = " + answer1);
+            Tester.print("answer 2 = " + answer2);
+            Tester.print("answer 3 = " + answer3);
+            Tester.print("answer 4 = " + answer4);
+            Tester.print("answer 5 = " + answer5);
+            Tester.print("answer 6 = " + answer6);
 
             // the Math library and random numbers:
             Random randomGenerator = new Random();
@@ -232,10 +235,10 @@ namespace ComputerScience40S.computerscience30s
             double high = 10.0;
             double random = (high - low + 1.0) * seed + low;
             // random number formula 
-            outputList.Items.Add("Random = " + random);
+            Tester.print("Random = " + random);
             // then convert the number
             int value = (int)random;
-            outputList.Items.Add("Value = " + value);
+            Tester.print("Value = " + value);
 
             //////////////////////////////////////////////////////////////////////
             // CONDITIONAL STATEMENTS:
@@ -247,7 +250,7 @@ namespace ComputerScience40S.computerscience30s
             // simple if statement, when something is true, it checks 1 thing
             if (value1 == value2)
             {
-                outputList.Items.Add("Equal");
+                Tester.print("Equal");
             }
 
             // if with an else, when something is both true and false, it 
@@ -255,18 +258,18 @@ namespace ComputerScience40S.computerscience30s
             double value3 = 1.45, value4 = 1.5;
             if (value3 < value4)
             {
-                outputList.Items.Add("Less than");
+                Tester.print("Less than");
             }
             else
             {
-                outputList.Items.Add("Greater than, or equal");
+                Tester.print("Greater than, or equal");
             }
 
             // use chars and some shorthand for conditional statements (not 
             // recommended), means when the code is one line, you don't need 
             // the { } brackets        
             char value5 = 'A', value6 = 'a';
-            if (value5 != value6) outputList.Items.Add("Not equal");
+            if (value5 != value6) Tester.print("Not equal");
 
             // use the else if for multiple cases of more than 2 things. Same as 
             // a switch statement (which I do not recommend) using strings        
@@ -275,15 +278,15 @@ namespace ComputerScience40S.computerscience30s
             // equals is more complicated with strings
             if (word1 == word2)
             {
-                outputList.Items.Add("Equal, same case");
+                Tester.print("Equal, same case");
             }
             else if (word1 == word2)
             {
-                outputList.Items.Add("Equal, different cases");
+                Tester.print("Equal, different cases");
             }
             else
             {
-                outputList.Items.Add("Not equal");
+                Tester.print("Not equal");
             }
 
             // optional (shorthand) for combining logic using "and" "or"        
@@ -291,15 +294,15 @@ namespace ComputerScience40S.computerscience30s
             double iq = 0.6;
             if (age >= 15 && iq >= 0.5)
             {       // && means "and"
-                outputList.Items.Add("Get in");
+                Tester.print("Get in");
             }
             else if (age >= 15 || iq >= 0.5)
             {  // || means "or"
-                outputList.Items.Add("Try again later");
+                Tester.print("Try again later");
             }
             else
             {
-                outputList.Items.Add("Get out");
+                Tester.print("Get out");
             }
 
             //////////////////////////////////////////////////////////////////////
@@ -310,7 +313,7 @@ namespace ComputerScience40S.computerscience30s
             int counter = 1;
             while (counter <= 50)
             {
-                outputList.Items.Add("counter = " + counter);
+                Tester.print("counter = " + counter);
                 counter++;
             }
 
@@ -319,7 +322,7 @@ namespace ComputerScience40S.computerscience30s
             string password = Storage.data;
             while (password == "1234")
             {
-                outputList.Items.Add("Cannot use this!");
+                Tester.print("Cannot use this!");
                 new InputBox("Enter password").ShowDialog();
                 password = Storage.data;
             }
@@ -335,19 +338,19 @@ namespace ComputerScience40S.computerscience30s
             // the "for" loop, designed for counting        
             for (int i = 0; i < 10; i++)
             {
-                outputList.Items.Add("i = " + i);
+                Tester.print("i = " + i);
             }
 
             // second loop with variations
             for (int j = 10; j <= 100; j = j + 5)
             {
-                outputList.Items.Add("j = " + j);
+                Tester.print("j = " + j);
             }
 
             // for loop that counts down
             for (int i = 100; i >= 0; i--)
             {
-                outputList.Items.Add("i = " + i);
+                Tester.print("i = " + i);
             }
 
             //////////////////////////////////////////////////////////////////////
@@ -370,7 +373,7 @@ namespace ComputerScience40S.computerscience30s
             MessageBox.Show("Thanks for using the"
                     + " dog age convertor!");
 
-            outputList.Items.Add("Java basics completed!");
+            Tester.print("Java basics completed!");
         }
 
         /// <summary>
@@ -378,7 +381,7 @@ namespace ComputerScience40S.computerscience30s
         /// </summary>
         private void unit2()
         {
-            outputList.Items.Add("Methods unit started...");
+            Tester.print("Methods unit started...");
             // code to "jump" to our method, "calling" the method 
             drawStar();         // calling a method with no parameters        
                                 // In NetBeans, you can write the call to a method first and NetBeans 
@@ -391,7 +394,7 @@ namespace ComputerScience40S.computerscience30s
             draw("number is " + number);
             output("Hello");            // overloaded methods are methods with the
             output("Hi", "Example");     // same name but different parameters
-            outputList.Items.Add("Methods unit completed!");
+            Tester.print("Methods unit completed!");
         }
 
         /// <summary>
@@ -408,7 +411,7 @@ namespace ComputerScience40S.computerscience30s
         /// <param name="item">the item to draw</param>
         private void draw(String item)
         {
-            outputList.Items.Add(item);
+            Tester.print(item);
         }
 
         /// <summary>
@@ -475,7 +478,7 @@ namespace ComputerScience40S.computerscience30s
         /// </summary>
         private void unit3()
         {
-            outputList.Items.Add("Arrays example started");
+            Tester.print("Arrays example started");
 
             // creating a variable for comparison
             int size = 5;
@@ -527,14 +530,14 @@ namespace ComputerScience40S.computerscience30s
             // change indivual indices of an array
             // just regular variables
             numbers[49] = 13;
-            outputList.Items.Add(numbers[77]);
+            Tester.print(numbers[77]);
 
             // loop again (traverse), and using
             // a built in feature of arrays
             // called the length        
             for (int i = 0; i < numbers.Length; i++)
             {
-                outputList.Items.Add(i + " = " +
+                Tester.print(i + " = " +
                         numbers[i]);
             }
 
@@ -568,7 +571,7 @@ namespace ComputerScience40S.computerscience30s
             // create a method for 2D matrix
             output(matrix);
 
-            outputList.Items.Add("Arrays example complete!");
+            Tester.print("Arrays example complete!");
         }
         
         /// <summary>
@@ -675,6 +678,20 @@ namespace ComputerScience40S.computerscience30s
         {
             new frmMessageBoxPlus(text, "Custom Message Box...", null,"Consolas");
         }
-        
+
+        /// <summary>
+        /// The example code for this unit
+        /// </summary>
+        private static void unit4()
+        {
+            Tester.print("Classes example started...");
+
+            // create (instantiate) an object for the class
+            Person bobby = new Person();
+            bobby.Talk();                   // call a class method
+
+            Tester.print("Classes example complete!");
+        }
+
     }
 }
