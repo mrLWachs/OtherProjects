@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{244B7A99-594C-49CC-B2B8-30AF6AA14854}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ComputerScience40S</RootNamespace>
+    <AssemblyName>ComputerScience40S</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="computerscience20s\ComputerScience20S.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\ComputerScience20S.Designer.cs">
+      <DependentUpon>ComputerScience20S.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\Dot.cs" />
+    <Compile Include="computerscience20s\frmAdvancedProgrammingExtra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\frmAdvancedProgrammingExtra.designer.cs">
+      <DependentUpon>frmAdvancedProgrammingExtra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\frmConditionalStatementsExample1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\frmConditionalStatementsExample1.designer.cs">
+      <DependentUpon>frmConditionalStatementsExample1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\frmConditionalStatementsExample2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\frmConditionalStatementsExample2.designer.cs">
+      <DependentUpon>frmConditionalStatementsExample2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\frmIntroductionToProgrammingExample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\frmIntroductionToProgrammingExample.Designer.cs">
+      <DependentUpon>frmIntroductionToProgrammingExample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\frmLoopingExample1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\frmLoopingExample1.designer.cs">
+      <DependentUpon>frmLoopingExample1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\frmLoopingExample2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\frmLoopingExample2.designer.cs">
+      <DependentUpon>frmLoopingExample2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\frmProgrammingExtras1Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\frmProgrammingExtras1Form1.designer.cs">
+      <DependentUpon>frmProgrammingExtras1Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\frmProgrammingExtras1Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\frmProgrammingExtras1Form2.designer.cs">
+      <DependentUpon>frmProgrammingExtras1Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\frmProgrammingExtras1Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\frmProgrammingExtras1Form3.designer.cs">
+      <DependentUpon>frmProgrammingExtras1Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\frmProgrammingExtras2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\frmProgrammingExtras2.designer.cs">
+      <DependentUpon>frmProgrammingExtras2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\frmProgrammingExtras3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\frmProgrammingExtras3.designer.cs">
+      <DependentUpon>frmProgrammingExtras3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\frmProgrammingExtras4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\frmProgrammingExtras4.designer.cs">
+      <DependentUpon>frmProgrammingExtras4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\frmVariablesExample1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\frmVariablesExample1.Designer.cs">
+      <DependentUpon>frmVariablesExample1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\frmVariablesExample2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience20s\frmVariablesExample2.designer.cs">
+      <DependentUpon>frmVariablesExample2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience20s\GameObject.cs" />
+    <Compile Include="computerscience20s\Ghost.cs" />
+    <Compile Include="computerscience20s\Globals.cs" />
+    <Compile Include="computerscience20s\LivingGameObject.cs" />
+    <Compile Include="computerscience20s\Pacman.cs" />
+    <Compile Include="computerscience20s\PacmanGlobals.cs" />
+    <Compile Include="computerscience20s\SimpleGameObject.cs" />
+    <Compile Include="computerscience20s\Wall.cs" />
+    <Compile Include="computerscience30s\ComputerScience30S.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience30s\ComputerScience30S.Designer.cs">
+      <DependentUpon>ComputerScience30S.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience40s\collections\LinkedList.cs" />
+    <Compile Include="computerscience40s\collections\Node.cs" />
+    <Compile Include="computerscience40s\testing\collections\CollectionsTest.cs" />
+    <Compile Include="MessageBoxPlus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBoxPlus.Designer.cs">
+      <DependentUpon>MessageBoxPlus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience40s\main\ComputerScience40S.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computerscience40s\main\ComputerScience40S.Designer.cs">
+      <DependentUpon>ComputerScience40S.cs</DependentUpon>
+    </Compile>
+    <Compile Include="computerscience40s\numbers\Calculator.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\AdvancedClassesTest.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Athlete.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Banana.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Box.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\ComputerScienceStudent.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\ComputerScienceTeacher.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Food.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Ghost.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Golf.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Haunted.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\HighSchoolStudent.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Home.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\House.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Husky.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\IceCreamCone.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\LOL.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Meeting.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\MrWachs.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\PermissionForm.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Person.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Phantom.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Poltergeist.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Skeleton.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Spaghetti.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Spooky.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Sports.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Student.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Teacher.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\White.cs" />
+    <Compile Include="computerscience40s\testing\advancedclasses\Wonton.cs" />
+    <Compile Include="computerscience40s\testing\RecursionTest.cs" />
+    <Compile Include="computerscience40s\testing\Tester.cs" />
+    <Compile Include="InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputBox.Designer.cs">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Storage.cs" />
+    <EmbeddedResource Include="computerscience20s\frmIntroductionToProgrammingExample.resx">
+      <DependentUpon>frmIntroductionToProgrammingExample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="computerscience20s\ComputerScience20S.resx">
+      <DependentUpon>ComputerScience20S.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="computerscience20s\frmProgrammingExtras1Form2.resx">
+      <DependentUpon>frmProgrammingExtras1Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="computerscience20s\frmVariablesExample1.resx">
+      <DependentUpon>frmVariablesExample1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="computerscience30s\ComputerScience30S.resx">
+      <DependentUpon>ComputerScience30S.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageBoxPlus.resx">
+      <DependentUpon>MessageBoxPlus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="computerscience40s\main\ComputerScience40S.resx">
+      <DependentUpon>ComputerScience40S.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputBox.resx">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_5Dfdk1Y_lrlzng7pECGglg.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlinkyClosed.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlinkyOpen.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClydeClosed.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClydeOpen.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InkyClosed.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InkyOpen.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pac-man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pac-man1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacmanDown.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacmanLeft.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacmanResting.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacmanRight.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacmanUp.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PinkyClosed.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PinkyOpen.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beginning.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chomp.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\death.wav" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
