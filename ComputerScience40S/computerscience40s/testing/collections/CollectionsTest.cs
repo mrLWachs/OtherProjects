@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComputerScience40S.computerscience40s.collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,27 @@ namespace ComputerScience40S.computerscience40s.testing.collections
         {
             Tester.print("\nCollections testing started...\n");
 
+            // create node objects
+            Node<char> n1 = new Node<char>();
+            n1.data = 'b';                          // mutate data
+            Node<char> n2 = new Node<char>('a');
+            n1.next = n2;                       // reference next
+            n2.previous = n1;                       // reference previous
+            Node<char> n3 = new Node<char>('c', n1, n2);
+
+            // output node data
+            Tester.print(n1.ToString());
+            Tester.print(n2.ToString());
+            Tester.print(n3.ToString());
+
+            // test node class methods
+            n1.Finalize();
+            Tester.print(n1.ToString());
+            Node<char> n4 = n2.Clone();
+            if (n2.Equals(n4)) Tester.print("n2 == n4");
+            if (n2.Equals(n3)) Tester.print("n2 == n3");
+
+            // linked list class
 
 
             Tester.print("\nCollections testing complete!\n");

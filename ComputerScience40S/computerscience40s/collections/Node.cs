@@ -105,5 +105,14 @@ namespace ComputerScience40S.computerscience40s.collections
                 this.previous);
         }
 
+        /// <summary>
+        /// Wipes out all memory used by this object
+        /// </summary>
+        public void Finalize()
+        {
+            data = default(T);
+            next = previous = null;
+        }
+
     }
 }
