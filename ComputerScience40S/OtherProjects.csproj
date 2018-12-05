@@ -151,7 +151,11 @@
     <Compile Include="computerscience30s\ComputerScience30S.Designer.cs">
       <DependentUpon>ComputerScience30S.cs</DependentUpon>
     </Compile>
+    <Compile Include="computerscience30s\Husky.cs" />
+    <Compile Include="computerscience30s\Meeting.cs" />
     <Compile Include="computerscience30s\Person.cs" />
+    <Compile Include="computerscience30s\Student.cs" />
+    <Compile Include="computerscience30s\Teacher.cs" />
     <Compile Include="computerscience40s\collections\LinkedList.cs" />
     <Compile Include="computerscience40s\collections\Node.cs" />
     <Compile Include="computerscience40s\testing\collections\CollectionsTest.cs" />

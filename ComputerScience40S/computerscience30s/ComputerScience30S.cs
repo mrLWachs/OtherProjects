@@ -686,9 +686,62 @@ namespace ComputerScience40S.computerscience30s
         {
             Tester.print("Classes example started...");
 
-            // create (instantiate) an object for the class
+            // create an object for the class
             Person bobby = new Person();
-            bobby.Talk();                   // call a class method
+            bobby.Talk();                           // call a class method        
+            bobby.name = "Roberta Shapiro";         // modify properties
+            bobby.Birthday(18);                     // call methods
+            bobby.Talk();
+
+            // create (instantiate) another object with different constructor
+            Person ben = new Person("Ben Shapiro"); // another object
+            ben.Talk();                             // with new constructor
+
+            // another instance of a person with the 3rd constructor
+            Person sam = new Person("Samatha Bee", 45, false);
+            sam.Talk();
+            sam.Identify();
+            sam.Birthday();
+            sam.name = "Sammy Bee";
+            sam.Talk();
+            sam.Die();
+            sam.Talk();
+
+            // create a student object
+            Student student = new Student("Greg Heffley", 12, true, 6, 101);
+            student.Talk();                         // call its methods        
+            student.SlackOff();
+            student.Talk();
+            student.Study();
+            student.Talk();
+            student.Cram();
+            student.Talk();
+
+            // create husky object
+            Husky husky = new Husky("Havoc", 12, true, 9, 2665);
+            husky.Talk();
+            husky.MeetStaff();
+            husky.Talk();
+            husky.EatCafeteriaFood();
+            husky.Talk();
+
+            // create teacher object
+            Teacher teacher = new Teacher("Mr. Libby");
+            teacher.students[0] = student;
+            teacher.students[1] = husky;
+            teacher.Talk();
+            teacher.Teach();
+            husky.Talk();
+
+            // create meeting object
+            Meeting meeting = new Meeting();
+            meeting.Attend(bobby);
+            meeting.Attend(ben);
+            meeting.Attend(sam);
+            meeting.Attend(student);
+            meeting.Attend(husky);
+            meeting.Attend(teacher);
+            meeting.Hold();
 
             Tester.print("Classes example complete!");
         }
