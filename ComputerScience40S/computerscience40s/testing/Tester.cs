@@ -23,8 +23,8 @@ namespace ComputerScience40S.computerscience40s.testing
         public static void Start()
         {
             print("\nTesting begins.....\n");
-            //RecursionTest       unit1 = new RecursionTest();
-            //AdvancedClassesTest unit2 = new AdvancedClassesTest();
+            RecursionTest       unit1 = new RecursionTest();
+            AdvancedClassesTest unit2 = new AdvancedClassesTest();
             CollectionsTest     unit3 = new CollectionsTest();
             print("\nTesting complete!\n");
         }

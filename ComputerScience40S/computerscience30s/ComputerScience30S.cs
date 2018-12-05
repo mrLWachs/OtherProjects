@@ -25,9 +25,9 @@ namespace ComputerScience40S.computerscience30s
         {
             Tester.outputList = outputList;
             Tester.print("Computer Science 30S Example started...");
-            //unit1();    // introduction to C# programming
-            //unit2();    // methods in C#
-            //unit3();    // arrays in C#
+            unit1();    // introduction to C# programming
+            unit2();    // methods in C#
+            unit3();    // arrays in C#
             unit4();    // classes in C#
             Tester.print("Computer Science 30S Example completed!");
             outputList.SelectedIndex = outputList.Items.Count - 1;
