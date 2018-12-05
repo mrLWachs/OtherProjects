@@ -283,7 +283,76 @@ namespace ComputerScience40S.computerscience40s.collections
             }
             return false;                           // not found in list
         }
-        
+
+        /// <summary>
+        /// Inserts data as a new node after the passed index
+        /// </summary>
+        /// <param name="data">the data type to insert</param>
+        /// <param name="index">the index location to insert after</param>
+        /// <returns>the operation was successful (true) or not (false)</returns>
+        public bool AddAfter(T data, int index)
+        {
+            if (!InRange(index)) return false;              // index out of range
+            if (data == null) return false;                 // invalid data to add
+            if (index == length - 1) return AddBack(data);  // add to end of list
+            else
+            {                                               // adding into middle
+                Node<T> node = new Node<T>(data);           // create node object
+                Node<T> current = GetNode(index);           // get to index spot
+                node.next = current.next;                   // set proper references
+                current.next.previous = node;
+                current.next = node;
+                node.previous = current;
+                length++;                                   // increase length
+                return true;                                // opperation successful
+            }
+        }
+
+        /// <summary>
+        /// Inserts data as a new node before the passed index
+        /// </summary>
+        /// <param name="data">the data type to insert</param>
+        /// <param name="index">the index location to insert before</param>
+        /// <returns>the operation was successful (true) or not (false)</returns>
+        public bool AddBefore(T data, int index)
+        {
+            if (!InRange(index)) return false;          // index out of range
+            if (data == null) return false;             // invalid data to add
+            if (index == 0) return AddFront(data);      // add to start of list
+            else
+            {                                           // adding into middle
+                Node<T> node = new Node<T>(data);       // create node object
+                Node<T> current = GetNode(index);       // get to index spot
+                node.previous = current.previous;       // set proper references
+                current.previous.next = node;
+                current.previous = node;
+                node.next = current;
+                length++;                               // increase length
+                return true;                            // opperation successful
+            }
+        }
+
+        /// <summary>
+        /// Adds the data to the back of the list
+        /// </summary>
+        /// <param name="data">the data to add</param>
+        /// <returns>the operation was successful (true) or not (false)</returns>
+        public bool Add(T data)
+        {
+            return AddBack(data);                           // wrapper method call
+        }
+
+        /// <summary>
+        /// Adds the data after the passed index
+        /// </summary>
+        /// <param name="data">the data to add</param>
+        /// <param name="index">the index location to add after</param>
+        /// <returns>the operation was successful (true) or not (false)</returns>
+        public bool Add(T data, int index)
+        {
+            return AddAfter(data, index);                   // wrapper method call
+        }
+
         /// <summary>
         /// Checks to see if the index is in the range of the list
         /// </summary>
@@ -291,9 +360,9 @@ namespace ComputerScience40S.computerscience40s.collections
         /// <returns>it is in range (true) or not (false)</returns>
         private bool InRange(int index)
         {
-            if (IsEmpty())      return false;
-            if (index < 0)      return false;
-            if (index > length) return false;
+            if (IsEmpty())       return false;
+            if (index < 0)       return false;
+            if (index >= length) return false;
             return true;
         }
 

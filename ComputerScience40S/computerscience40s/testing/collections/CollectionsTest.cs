@@ -95,6 +95,15 @@ namespace ComputerScience40S.computerscience40s.testing.collections
 
             // test contains
             Tester.print(list.contains("Risk"));
+            Tester.print(list.contains("zebra"));
+
+            // test add before and after
+            Tester.print(list.ToString());
+            list.AddAfter("chart", 2);
+            Tester.print(list.ToString());
+            list.AddBefore("sardines", 1);
+            Tester.print(list.ToString());
+
 
 
 
