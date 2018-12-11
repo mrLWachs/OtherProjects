@@ -30,6 +30,11 @@ namespace ComputerScience40S.computerscience40s.collections
         /// </summary>
         private Node<T> tail;
 
+        /// <summary>
+        /// Flag to indicate a search operation was not found 
+        /// </summary>
+        public const int NOT_FOUND = -1;
+
 
         /// <summary>
         /// Default constructor for the class, sets class properties
@@ -37,6 +42,24 @@ namespace ComputerScience40S.computerscience40s.collections
         public LinkedList()
         {
             Finalize();
+        }
+
+        /// <summary>
+        /// Constructor instantiates list from the passed data
+        /// </summary>
+        /// <param name="array">the data objects to create the list from</param>
+        public LinkedList(T[] array)
+        {
+            FromArray(array);
+        }
+
+        /// <summary>
+        /// Constructor instantiates list from the passed data
+        /// </summary>
+        /// <param name="list">the data objects to create the list from</param>
+        public LinkedList(LinkedList<T> list)
+        {
+            FromLinkedList(list);
         }
 
         /// <summary>
@@ -270,7 +293,7 @@ namespace ComputerScience40S.computerscience40s.collections
         /// </summary>
         /// <param name="data">the data to check for</param>
         /// <returns>data is in the list (true) or not (false)</returns>
-        public bool contains(T data)
+        public bool Contains(T data)
         {
             Node<T> current = head;                 // start reference at head
             while (current != null)
@@ -351,6 +374,356 @@ namespace ComputerScience40S.computerscience40s.collections
         public bool Add(T data, int index)
         {
             return AddAfter(data, index);                   // wrapper method call
+        }
+
+        /// <summary>
+        /// Deletes the node at the specified index and mutates the list
+        /// </summary>
+        /// <param name="index">the index location to remove</param>
+        /// <returns>the data at the specified index (or null)</returns>
+        public T Remove(int index)
+        {
+            if (!InRange(index))     return default(T);     // not in range
+            if (index == 0)          return RemoveFront();  // remove first
+            if (index == length - 1) return RemoveBack();   // remove last
+            Node<T> current = GetNode(index);               // get to index
+            current.next.previous = current.previous;       // change references
+            current.previous.next = current.next;
+            current.next = current.previous = null;
+            length--;                                       // reduce list length
+            return (T)current.data;                         // return index data
+        }
+
+        /// <summary>
+        /// Finds the node matching the data at the first occurrence in the list 
+        /// and returns it's index or -1 (NOT_FOUND) if not in the list
+        /// </summary>
+        /// <param name="data">the node data to search for</param>
+        /// <returns>index of first occurrence or -1 (NOT_FOUND)</returns>
+        public int FirstIndexOf(T data)
+        {
+            Node<T> current = head;                 // start at head
+            int index = 0;                          // start count at 0
+            while (current != null)
+            {                                       // traverse list
+                if (current.data.Equals(data))
+                {                                   // found first occurrence
+                    return index;                   // return location
+                }
+                current = current.next;             // advance to next node
+                index++;                            // advance count
+            }
+            return NOT_FOUND;                       // data not found
+        }
+
+        /// <summary>
+        /// Finds the node matching the data at the last occurrence in the list
+        /// and returns it's index or -1 (NOT_FOUND) if not in the list
+        /// </summary>
+        /// <param name="data">the node data to search for</param>
+        /// <returns>index of last occurrence or -1 (NOT_FOUND) </returns>
+        public int LastIndexOf(T data)
+        {
+            Node<T> current = tail;                 // start at head
+            int index = length - 1;                 // start count at total nodes
+            while (current != null)
+            {                                       // traverse list
+                if (current.data.Equals(data))
+                {                                   // found last occurrence
+                    return index;                   // return location
+                }
+                current = current.previous;         // return to previous node
+                index--;                            // decrease count
+            }
+            return NOT_FOUND;                       // data not found
+        }
+
+        /// <summary>
+        /// Deletes the first occurrence of the data in the list
+        /// </summary>
+        /// <param name="data">the node data to remove</param>
+        /// <returns>the operation was successful (true) or not (false) </returns>
+        public bool Remove(T data)
+        {
+            if (data == null) return false;         // nothing to remove
+            int index = FirstIndexOf(data);         // get first location
+            if (index == NOT_FOUND) return false;   // not in list
+            Remove(index);                          // remove
+            return true;                            // operation successful
+        }
+
+        /// <summary>
+        /// Deletes the last occurrence of the data in the list
+        /// </summary>
+        /// <param name="data">the node data to remove</param>
+        /// <returns>the operation was successful (true) or not (false) </returns>
+        public bool RemoveLast(T data)
+        {
+            if (data == null) return false;         // nothing to remove
+            int index = LastIndexOf(data);          // get first location
+            if (index == NOT_FOUND) return false;   // not in list
+            Remove(index);                          // remove
+            return true;                            // operation successful
+        }
+
+        /// <summary>
+        /// Deletes all occurrences of the data in the list
+        /// </summary>
+        /// <param name="data">the node data to remove</param>
+        /// <returns>the operation was successful (true) or not (false)</returns>
+        public bool RemoveAll(T data)
+        {
+            if (data == null)    return false;      // nothing to remove
+            if (!Contains(data)) return false;      // not in list
+            while (Contains(data))
+            {                                       // loop continuously
+                Remove(data);                       // removing the data
+            }
+            return true;                            // operation successful
+        }
+
+        /// <summary>
+        /// Deletes all occurrences of the different data items in the array 
+        /// from the list
+        /// </summary>
+        /// <param name="items">the node data array items to remove</param>
+        /// <returns>the operation was successful (true) or not (false)</returns>
+        public bool RemoveAll(T[] items)
+        {
+            if (items == null)     return false;    // invalid array
+            if (items.Length == 0) return false;    // invalid array
+            foreach (var item in items)
+            {                                       // traverse array
+                RemoveAll(item);                    // remove array item
+            }
+            return true;                            // operation successful
+        }
+                
+        /// <summary>
+        /// Deletes all occurrences of the different data items in the passed
+        /// list from the current list
+        /// </summary>
+        /// <param name="list">the LinkedList of items to remove</param>
+        /// <returns>the operation was successful (true) or not (false)</returns>
+        public bool RemoveAll(LinkedList<T> list)
+        {
+            if (list == null)   return false;           // invalid list
+            if (list.IsEmpty()) return false;           // empty list
+            for (int i = 0; i < list.Size(); i++)
+            {                                           // traverse list
+                RemoveAll(list.Get(i));                 // remove list item
+            }
+            return true;                                // operation successful
+        }
+
+        /// <summary>
+        /// Wipes out all memory of all contents of the list
+        /// </summary>
+        public void Clear()
+        {
+            Node<T> current = head;             // start at head of the list
+            while (current != null)
+            {                                   // traverse the list
+                Node<T> next = current.next;    // reference to the next node
+                current.Finalize();             // wipe all memory from the node
+                current = next;                 // move to the next node
+            }
+            Finalize();                         // wipe all memory from the list
+        }
+
+        /// <summary>
+        /// Checks the list to see if it contains all the items in the array
+        /// </summary>
+        /// <param name="items">the node data array items to check</param>
+        /// <returns>all items are in the array (true) or not (false)</returns>
+        public bool ContainsAll(T[] items)
+        {
+            if (items == null)     return false;    // invalid array
+            if (items.Length == 0) return false;    // invalid array
+            foreach (var item in items)
+            {                                       // traverse array
+                if (!Contains(item)) return false;  // item not in list
+            }
+            return true;                            // operation successful
+        }
+
+        /// <summary>
+        /// Checks the list to see if it contains all the items in the array
+        /// </summary>
+        /// <param name="list">the LinkedList of items to check</param>
+        /// <returns>all items are in the list (true) or not (false)</returns>
+        public bool ContainsAll(LinkedList<T> list)
+        {
+            if (list == null)     return false;         // invalid list
+            if (list.Size() == 0) return false;         // invalid list
+            for (int i = 0; i < list.Size(); i++)
+            {                                           // traverse array
+                if (!Contains((T)list.Get(i)))
+                    return false;                       // item not in list
+            }
+            return true;                                // operation successful
+        }
+
+        /// <summary>
+        /// The number of instances this data occurs in the list
+        /// </summary>
+        /// <param name="data">the data to search for</param>
+        /// <returns>the number of instances of the data</returns>
+        public int NumberOf(T data)
+        {
+            int counter = 0;                        // start a counter
+            Node<T> current = head;                 // start at head of list
+            while (current != null)
+            {                                       // traverse list
+                if (current.data.Equals(data))
+                {                                   // item found in list
+                    counter++;                      // increase counter
+                }
+                current = current.next;             // advance to next node
+            }
+            return counter;                         // counter returned
+        }
+
+        /// <summary>
+        /// Appends all the items from the passed list to the end of the 
+        /// current list
+        /// </summary>
+        /// <param name="list">the Linked list to append on</param>
+        public void AddAll(LinkedList<T> list)
+        {
+            for (int i = 0; i < list.Size(); i++)
+            {     // traverse list
+                this.Add(list.Get(i));                  // get and add item
+            }
+        }
+
+        /// <summary>
+        /// Appends all the items from the passed list into the current list 
+        /// after the passed index
+        /// </summary>
+        /// <param name="list">the Linked list to append on</param>
+        /// <param name="index">the index location to append from</param>
+        public void AddAll(LinkedList<T> list, int index)
+        {
+            for (int i = 0; i < list.Size(); i++)
+            {                                           // traverse list
+                this.AddAfter(list.Get(i), index);      // get and add item after
+                index++;                                // increase index
+            }
+        }
+
+        /// <summary>
+        /// Appends all the items from the passed list to the end of the 
+        /// current list
+        /// </summary>
+        /// <param name="items">the array to append on</param>
+        public void AddAll(T[] items)
+        {
+            foreach (var item in items)
+            {                                       // traverse array
+                this.Add(item);                     // add array item
+            }
+        }
+
+        /// <summary>
+        /// Appends all the items from the passed list into the current list
+        /// after the passed index 
+        /// </summary>
+        /// <param name="items">the array to append on</param>
+        /// <param name="index">the index location to append from</param>
+        public void AddAll(T[] items, int index)
+        {
+            foreach (var item in items)
+            {                                       // traverse array
+                this.AddAfter(item, index);         // add array item after
+                index++;                            // increase index
+            }
+        }
+
+        /// <summary>
+        /// Accesses a sub list from the main list based on the passed parameters
+        /// </summary>
+        /// <param name="from">the index to start the sublist from</param>
+        /// <param name="to">the index to end the sub list at</param>
+        /// <returns>a sub list from the main list</returns>
+        public LinkedList<T> SubList(int from, int to)
+        {
+            if (!InRange(from)) return null;            // index out of range
+            if (!InRange(to))   return null;            // index out of range
+            if (from > to)      return null;            // index not in line
+            LinkedList<T> list = new LinkedList<T>();   // create list
+            for (int i = from; i <= to; i++)
+            {          // traverse indices
+                list.Add(this.Get(i));                  // add to list from list
+            }
+            return list;                                // return new list
+        }
+
+        /// <summary>
+        /// Mutates the list into a list only matching the contents of the array
+        /// </summary>
+        /// <param name="array">the data objects to form the list from</param>
+        public void FromArray(T[] array)
+        {
+            Finalize();                                 // wipe list memory
+            foreach (var item in array)
+            {                                           // traverse array
+                Add(item);                              // add array item
+            }
+        }
+
+        /// <summary>
+        /// Mutates list into a list only matching the contents of the other list
+        /// </summary>
+        /// <param name="list">the data objects to form the list from</param>
+        public void FromLinkedList(LinkedList<T> list)
+        {
+            Finalize();                                 // wipe list memory
+            for (int i = 0; i < list.Size(); i++)
+            {                                           // traverse list
+                Add(list.Get(i));                       // get and add item
+            }
+        }
+
+        /// <summary>
+        /// Returns an array that contains the same data as the list
+        /// </summary>
+        /// <param name="array">the data type array</param>
+        /// <returns>an array of generic type T</returns>
+        public T[] ToArray(T[] array)
+        {
+            array = (T[])Array.CreateInstance(typeof(T), length);
+            for (int i = 0; i < length; i++)
+            {                                       // traverse list
+                array[i] = Get(i);                  // add to array
+            }
+            return array;                           // return completed array
+        }
+
+        /// <summary>
+        /// Accesses all occurrences of the passed data in the list and returns an
+        /// integer array containing all index values the data occurred at
+        /// </summary>
+        /// <param name="data">the data to search for</param>
+        /// <returns>all indices location in an array or null if no indices</returns>
+        public int[] AllIndices(T data)
+        {
+            if (!Contains(data)) return null;       // no data in the list
+            int size = NumberOf(data);              // get number of occurrences
+            int[] array = new int[size];            // create array 
+            Node<T> current = head;                 // start at head
+            int counter = 0;                        // start counter
+            for (int i = 0; i < length; i++)
+            {                                       // traverse list
+                if (current.data.Equals(data))
+                {                                   // item encountered
+                    array[counter] = i;             // insert index into array
+                    counter++;                      // increase counter
+                    if (counter >= size) return array;
+                }
+                current = current.next;             // move to next node
+            }
+            return array;                           // return completed array
         }
 
         /// <summary>
